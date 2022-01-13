@@ -1,8 +1,7 @@
-import { Response, Request } from "express";
-import jwtconfig from "../../../config/jwt";
-import jwt from "jsonwebtoken";
+const jwtconfig = require("../../../config/jwt")
+const jwt = require("jsonwebtoken")
 
-const USERSDB: User[] = [
+const USERSDB= [
     {
         "username": "lsequeira",
         "password": "cocen123",
@@ -36,22 +35,8 @@ const USERSDB: User[] = [
     }
 ]
 
-type Role = "ADMIN" | "USER" | "SUPERVISOR";
-
-type User = {
-    "username": string,
-    "password": string,
-    "name": string,
-    "lastname": string,
-    "email": string,
-    "phone": string,
-    "address": string,
-    "store_id": number,
-    "role": Role
-}
-
 class UserModel {
-    findByUsername(username: string): User | undefined {
+    findByUsername(username) {
         const userSearch = USERSDB.filter(user => user.username === username)
         if(userSearch.length > 0) return userSearch[0]
         return undefined;
@@ -59,7 +44,7 @@ class UserModel {
 
 }
 
-export const postController = async ( req: Request , res:Response ) => {
+const postController = async ( req , res) => {
     try {
         const { username, password } = req.body;
 
@@ -80,4 +65,5 @@ export const postController = async ( req: Request , res:Response ) => {
         res.status(500).json({ message: 'Ocurrio un error en el servidor.' });
     }
 }
+module.exports = {postController}
 
