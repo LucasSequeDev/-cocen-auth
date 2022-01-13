@@ -1,0 +1,47 @@
+[
+    {
+        "app_id": "cocen-vista-interna",
+        "app_name": "COCEN VISTA INTERNA",
+        "app_description": "COCEN VISTA INTERNA",
+        "app_url": "http://cocen.com.mx/",
+        "profiles": [
+            {
+                "profile_id": "cocen-vista-interna",
+                "profile_name": "ADMIN",
+                "routes": [
+                    {
+                        "path": "/"
+                    },{
+                        "path": "/admin"
+                    },{
+                        "path": "/login"
+                    },{
+                        "path": "/users"
+                    }
+                ]
+            },{
+                "profile_id": "cocen-vista-interna-user",
+                "profile_name": "USER",
+                "routes": [
+                    {
+                        "path": "/"
+                    },{
+                        "path": "/login"
+                    }
+                ]
+            },{
+                "profile_id": "cocen-vista-interna-user",
+                "profile_name": "SUPERVISOR",
+                "routes": [
+                    {
+                        "path": "/"
+                    },{
+                        "path": "/login"
+                    },{
+                        "path": "/users"
+                    }
+                ]
+            }
+        ]
+    }
+]

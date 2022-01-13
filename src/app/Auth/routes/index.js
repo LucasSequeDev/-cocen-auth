@@ -1,8 +1,10 @@
 const express = require('express')
-const {postController} = require('../controllers')
+const {loginController,isTokenValidController} = require('../controllers')
 
 const router = express.Router();
 
-router.post("/", postController);
+router.post("/", loginController);
+
+router.get("/check", isTokenValidController);
 
 module.exports = router;

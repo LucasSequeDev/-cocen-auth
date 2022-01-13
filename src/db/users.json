@@ -1,0 +1,33 @@
+[
+    {
+        "username": "lsequeira",
+        "password": "cocen123",
+        "name": "lucas",
+        "lastname": "sequeira",
+        "email": "lsequeira@mail.com",
+        "phone": "123456789",
+        "address": "calle falsa 123",
+        "store_id": 1,
+        "role": "ADMIN"
+    },{
+        "username": "empleado_sac",
+        "password": "cocen123",
+        "name": "empleado",
+        "lastname": "sac",
+        "email": "empleado_sac@mail.com",
+        "phone": "123456789",
+        "address": "calle falsa 123",
+        "store_id": 1,
+        "role": "USER"
+    },{
+        "username": "supervisor_sac",
+        "password": "cocen123",
+        "name": "supervisor",
+        "lastname": "sac",
+        "email": "super@mail.com",
+        "phone": "123456789",
+        "address": "calle falsa 123",
+        "store_id": 1,
+        "role": "SUPERVISOR"
+    }
+]
