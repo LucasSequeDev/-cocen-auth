@@ -11,11 +11,11 @@ const AuthMiddleware = (req,res,next) => {
 
         axios.defaults.headers.common = {...token,origin:req.originalUrl};
 
-        axios.get(`http://localhost:4005/api/auth/check`).then(response => {
+        axios.get(`${process.env.APP_URL}:${process.env.PORT}/api/auth/check`).then(response => {
             const userData = response.data;
             req.user = userData;
         })
-        .catch(error => res.status(401).json({ message: "Token invalid."}))
+        .catch(error => res.status(401).json({ message: "Token invalid.","error":error}))
         .finally(() => next() )
     } catch(error) {
         res.status(401).json({ message: "Token invalid."});

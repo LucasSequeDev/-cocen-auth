@@ -65,9 +65,13 @@ const isTokenValidController = ( req , res) => {
 
         const token = authorization.split(" ")[1];
         
-        const payload = jwt.verify(token, jwtconfig.key);
+        let payload = ''
+        try {
+            payload = jwt.verify(token, jwtconfig.key);
+        } catch(err) {
+            return res.status(401).json({ message: "Token invalid."})
+        }
 
-        if (!payload) res.status(401).json({ message: "Token invalid."})
 
         const routesApp = ROUTESDB.filter(app => app.app_id === payload.project_id)
 
@@ -89,7 +93,7 @@ const isTokenValidController = ( req , res) => {
 
         res.json( { configApp ,permissions: { app: routesUser , services: []} });
     } catch(error) {
-        res.status(500).json({ message: 'Ocurrio un error en el servidor.' });
+        res.status(500).json({ message: 'Ocurrio un error en el servidor.',error });
     }
 }
 module.exports = {loginController,isTokenValidController }
