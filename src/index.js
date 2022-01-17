@@ -3,6 +3,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const AuthRouter = require('./app/Auth/routes') 
 const PingRouter = require('./app/Ping/routes') 
+const CoreProductsRouter = require('./core/Products/routes') 
 
 const app = express();
 // ENV import
@@ -19,6 +20,8 @@ app.use(express.urlencoded({ extended: false }));
 // Routes
 app.use("/ping", PingRouter);
 app.use("/api/auth", AuthRouter);
+
+app.use("/core/products", CoreProductsRouter);
 
 // Not found
 app.use( (req,res) => {

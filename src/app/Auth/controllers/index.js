@@ -19,7 +19,6 @@ class UserModel {
 
 const loginController = ( req , res) => {
     try {
-        console.log(req.socket.remoteAddress)
         const { username, password } = req.body;
 
         if (username.trim() === '' || password.trim() ==='') res.status(401).json({ message: "Error de credenciales."})
@@ -54,9 +53,6 @@ const loginController = ( req , res) => {
 
         const configApp = { app_id,app_name,app_description,app_url }
 
-        
-
-
         res.json( { user: userSearch,token,configApp ,permissions: { app: routesUser , services: []} });
     } catch(error) {
         res.status(500).json({ message: 'Ocurrio un error en el servidor.' });
@@ -65,7 +61,7 @@ const loginController = ( req , res) => {
 
 const isTokenValidController = ( req , res) => {
     try {
-        const {authorization} = req.headers;
+        const {authorization,origin} = req.headers;
 
         const token = authorization.split(" ")[1];
         
