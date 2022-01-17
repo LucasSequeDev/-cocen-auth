@@ -11,7 +11,11 @@ const AuthMiddleware = (req,res,next) => {
 
         axios.defaults.headers.common = {...token,origin:req.originalUrl};
 
-        axios.get(`${process.env.APP_URL}:${process.env.PORT}/api/auth/check`).then(response => {
+        const urlBase = process.env.NODE_ENV === 'dev' 
+            ? `${process.env.APP_URL}:${process.env.PORT}`
+            : `${process.env.APP_URL}`
+
+        axios.get(`${urlBase}/api/auth/check`).then(response => {
             const userData = response.data;
             req.user = userData;
         })
