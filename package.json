@@ -1,6 +1,9 @@
 {
   "name": "-cocen-auth",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=13.0.0"
+  },
   "description": "",
   "main": "index.js",
   "scripts": {
